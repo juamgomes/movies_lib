@@ -26,8 +26,8 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Melhores filmes</h2>
-      <div>
+      <h2 className='text-white text-4xl text-center mt-8 mb-4 font-bold'>Melhores filmes</h2>
+      <div className='flex flex-wrap justify-between p-2 max-w-7xl m-auto'>
         {topMovies.length === 0 && <p>Carregando...</p>}
         {topMovies.length > 0 && topMovies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
       </div>
