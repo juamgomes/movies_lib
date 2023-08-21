@@ -1,39 +1,35 @@
-import {React, useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import MovieCard from '../componets/MovieCard';
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-  const [topMovies, SetTopMovies] = useState([])
+  const [topMovies, setTopMovies] = useState([]);
 
-  const getTopRateMovies = async (url) => {
-
-    const res = await fetch(url)
-    const data = await res.json()
-
-    SetTopMovies(data.results);
+  const getTopRatedMovies = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setTopMovies(data.results);
   };
 
-
   useEffect(() => {
-
-    const topRateURL = `${moviesURL}top_rated?${apiKey}`;
-
-    getTopRateMovies(topRateURL);
-
-  }, [])
+    const topRatedURL = `${moviesURL}top_rated?${apiKey}`;
+    getTopRatedMovies(topRatedURL);
+  }, []);
 
   return (
-    <div>
+    <div className='m-9 rounded-2xl p-4 min-h-screen'>
       <h2 className='text-white text-4xl text-center mt-8 mb-4 font-bold'>Melhores filmes</h2>
-      <div className='flex flex-wrap justify-between p-2 max-w-7xl m-auto'>
-        {topMovies.length === 0 && <p>Carregando...</p>}
-        {topMovies.length > 0 && topMovies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
+      <div className='flex flex-wrap justify-center p-2 max-w-7xl mx-auto'>
+        {topMovies.length === 0 && <p className='text-white'>Carregando...</p>}
+        {topMovies.length > 0 &&
+          topMovies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
       </div>
     </div>
-  );  
-  
+  );
 };
 
-export default Home
+export default Home;
