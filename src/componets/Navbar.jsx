@@ -21,7 +21,7 @@ const Navbar = () => {
         <BiCameraMovie />
         <Link to='/'>MOVIESLib</Link>
       </h2>
-      <form className='mt-4 sm:mt-0 flex flex-col sm:flex-row items-center justify-center gap-2' onSubmit={handleSubmit}>
+      <form className='mt-4 sm:mt-0 flex items-center justify-center gap-2' onSubmit={handleSubmit}>
         <input
           className='text-white p-2 rounded-lg outline-none ring-1 ring-indigo-600 bg-transparent'
           type='text'
