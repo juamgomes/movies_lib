@@ -9,6 +9,9 @@ export default {
       spacing: {
         '30': '30%'
       },
+      colors: {
+        'black': '#0e0e0e'
+      }
     },
   },
   plugins: [],
